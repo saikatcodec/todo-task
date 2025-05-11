@@ -1,0 +1,12 @@
+.taskName {
+    border: solid 1px #272d50;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.taskContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}

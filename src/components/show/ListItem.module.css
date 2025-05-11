@@ -1,0 +1,35 @@
+.card {
+    display: grid;
+    background-color: #f5eaea;
+    width: 30rem;
+    grid-template-columns: 15% 70% 15%;
+    margin: 1rem auto;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.cardButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deleteBtn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.deleteBtn:hover {
+    background-color: #ff1a1a;
+}
