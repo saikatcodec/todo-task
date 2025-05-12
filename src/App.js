@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import shortid from "shortid";
 
 import CreateTask from "./components/create/CreateTask";
@@ -9,11 +9,6 @@ import FilterTask from "./components/filterTask/FilterTask";
 function App() {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("all");
-  const [filteredTasks, setFilteredTasks] = useState([]);
-
-  useEffect(() => {
-    filterTasks(filter);
-  }, [filter, tasks]);
 
   function addTask(taskName) {
     const newTask = {
@@ -38,13 +33,13 @@ function App() {
     setTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
   }
 
-  function filterTasks(filterValue) {
-    if (filterValue === "all") {
-      setFilteredTasks(tasks);
-    } else if (filterValue === "completed") {
-      setFilteredTasks(tasks.filter((task) => task.isCompleted));
-    } else if (filterValue === "not-completed") {
-      setFilteredTasks(tasks.filter((task) => !task.isCompleted));
+  function filterTasks() {
+    if (filter === "all") {
+      return tasks;
+    } else if (filter === "completed") {
+      return tasks.filter((task) => task.isCompleted);
+    } else if (filter === "not-completed") {
+      return tasks.filter((task) => !task.isCompleted);
     }
   }
 
@@ -58,7 +53,7 @@ function App() {
       <FilterTask filterTasks={handleFilterChange} />
       {tasks.length > 0 ? (
         <ShowTask
-          tasks={filteredTasks}
+          tasks={filterTasks()}
           toggleTask={toggleTask}
           deleteTask={deleteTask}
         />
